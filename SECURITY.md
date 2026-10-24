@@ -1,12 +1,11 @@
-# Security Policy
+# Security policy
 
-## Reporting a Vulnerability
+## Reporting a vulnerability
 
-1. Please report security issues to https://github.com/louislam/dockge/security/advisories/new.
-1. Please also create an empty security issue to alert me, as GitHub Advisories do not send a notification, I probably will miss it without this. https://github.com/louislam/dockge/issues/new?assignees=&labels=help&template=security.md
+Report vulnerabilities privately through [GitHub private vulnerability reporting](https://github.com/ChristopheAwad/dockge-rebooted/security/advisories/new).
 
-Do not use the public issue tracker or discuss it in public as it will cause more damage.
+Do not open a public issue or publish exploit details before the report is resolved.
 
-## Do you accept other 3rd-party bug bounty platforms?
+Dockge Rebooted is an independent fork. It is not affiliated with upstream Dockge or Louis Lam. Reports about this fork belong in this repository.
 
-At this moment, I DO NOT accept other bug bounty platforms, because I am not familiar with these platforms and someone has tried to send a phishing link to me by doing this already. To minimize my own risk, please report through GitHub Advisories only. I will ignore all 3rd-party bug bounty platforms emails.
+This is an early alpha. It inherits upstream dependencies and risks. There is no bug bounty program.

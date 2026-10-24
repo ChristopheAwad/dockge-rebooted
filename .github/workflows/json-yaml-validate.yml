@@ -2,22 +2,22 @@ name: json-yaml-validate
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
-      - 2.0.X
+      - main
   workflow_dispatch:
 
 permissions:
   contents: read
-  pull-requests: write # enable write permissions for pull request comments
 
 jobs:
   json-yaml-validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: json-yaml-validate
         id: json-yaml-validate
