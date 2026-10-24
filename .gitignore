@@ -4,9 +4,11 @@ node_modules
 .idea
 data
 stacks
+data-rebooted/
+# Covers a relative test directory; /opt/stacks-rebooted is outside this repo.
+stacks-rebooted/
 tmp
 /private
 
 # Git only
 frontend-dist
-

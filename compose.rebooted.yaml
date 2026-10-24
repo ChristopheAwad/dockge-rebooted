@@ -1,0 +1,15 @@
+name: dockge-rebooted
+
+services:
+  dockge:
+    image: ghcr.io/christopheawad/dockge-rebooted:2.0.0-alpha.0
+    restart: unless-stopped
+    ports:
+      - "5002:5001"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data-rebooted:/app/data
+      # Both sides must be the same absolute path.
+      - /opt/stacks-rebooted:/opt/stacks-rebooted
+    environment:
+      DOCKGE_STACKS_DIR: /opt/stacks-rebooted

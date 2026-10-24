@@ -1,5 +1,5 @@
 /*
- * If changed, have to run `npm run build-docker-builder-go`.
+ * Rebuilt inline by docker/Dockerfile. No separate build script is needed.
  * This script should be run after a period of time (180s), because the server may need some time to prepare.
  */
 package main

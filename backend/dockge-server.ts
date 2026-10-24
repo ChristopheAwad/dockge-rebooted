@@ -15,7 +15,6 @@ import { Socket } from "socket.io";
 import { MainSocketHandler } from "./socket-handlers/main-socket-handler";
 import { SocketHandler } from "./socket-handler";
 import { Settings } from "./settings";
-import checkVersion from "./check-version";
 import dayjs from "dayjs";
 import { R } from "redbean-node";
 import { genSecret, isDev, LooseObject } from "../common/util-common";
@@ -87,7 +86,7 @@ export class DockgeServer {
         // Catch unexpected errors here
         let unexpectedErrorHandler = (error : unknown) => {
             console.trace(error);
-            console.error("If you keep encountering errors, please report to https://github.com/louislam/dockge");
+            console.error("If you keep encountering errors, please report to https://github.com/ChristopheAwad/dockge-rebooted/issues");
         };
         process.addListener("unhandledRejection", unexpectedErrorHandler);
         process.addListener("uncaughtException", unexpectedErrorHandler);
@@ -403,7 +402,6 @@ export class DockgeServer {
                 this.sendStackList(true);
             });
 
-            checkVersion.startInterval();
         });
 
         gracefulShutdown(this.httpServer, {
@@ -425,18 +423,15 @@ export class DockgeServer {
      */
     async sendInfo(socket : Socket, hideVersion = false) {
         let versionProperty;
-        let latestVersionProperty;
         let isContainer;
 
         if (!hideVersion) {
             versionProperty = packageJSON.version;
-            latestVersionProperty = checkVersion.latestVersion;
             isContainer = (process.env.DOCKGE_IS_CONTAINER === "1");
         }
 
         socket.emit("info", {
             version: versionProperty,
-            latestVersion: latestVersionProperty,
             isContainer,
             primaryHostname: await Settings.get("primaryHostname"),
             //serverTimezone: await this.getTimezone(),

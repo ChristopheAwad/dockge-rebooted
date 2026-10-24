@@ -1,9 +1,11 @@
-# Should be identical to .gitignore
+# Exclude runtime data and development inputs. Keep frontend-dist for the image.
 .env
 node_modules
 .idea
 data
 stacks
+data-rebooted/
+stacks-rebooted/
 tmp
 /private
 
